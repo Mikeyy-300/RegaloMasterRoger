@@ -1,30 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #090909;
+    font-family: 'Poppins', sans-serif;
+    height: 100dvh; /* 100dvh invece di 100vh: evita il salto dovuto alla barra indirizzi Safari su iPhone */
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: white;
+}
+
+/* =========================
+   INTRO
+========================= */
+.container {
+    text-align: center;
+    padding: 30px;
+    animation: fade 2s ease;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 1.8s forwards;
+    animation-delay: 0.8s;
+}
+
+.container p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 1.8s forwards;
+    animation-delay: 2.2s;
+}
+
+/* =========================
+   BUTTON
+========================= */
+button {
+    opacity: 0;
+    padding: 16px 35px;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    border-radius: 50px;
+    background: white;
+    color: #111;
+    font-weight: 600;
+    cursor: pointer;
+    animation: fadeUp 1.8s forwards;
+    animation-delay: 3.6s;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* =========================
+   GIFT
+========================= */
+.hidden {
+    display: none !important;
+}
+
+.gift-container {
+    text-align: center;
+    animation: fadeUp 1s forwards;
+}
+
+.gift-container img {
+    width: 220px;
+    max-width: 70vw;
+    cursor: pointer;
+    animation: floatGift 3s infinite ease-in-out;
+}
+
+.gift-container img.opened {
+    animation: openAnimation 0.8s ease forwards;
+}
+
+.touch-text {
+    margin-top: 40px;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
 /* =========================
    PAYPAL SCREEN
 ========================= */
-
-
 .paypal-screen {
-
     position: fixed;
-
     inset: 0;
-
     width: 100vw;
-
-    height: 100vh;
-
+    height: 100dvh;
     background: #000000;
-
     overflow: hidden;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
 }
 
+.photo-rain {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.falling-photo {
+    position: absolute;
+    top: -150px;
+    height: auto;
+    max-width: 40vw; /* evita che su iPhone (schermo stretto) le foto sforino ai lati */
+    opacity: 0.75;
+    animation: photoFall linear infinite;
+}
+
+@keyframes photoFall {
+    from {
+        transform: translateY(-150px) rotate(0deg);
+    }
+    to {
+        transform: translateY(120vh) rotate(360deg);
+    }
+}
+
+/* NOTIFICA */
+.notification {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 420px;
+    z-index: 5;
+}
+
+/* FRECCE */
+.arrows {
+    position: absolute;
+    top: 120px;
+    display: flex;
+    gap: 50px;
+    z-index: 5;
+}
+
+.arrows span {
+    font-size: 55px;
+    animation: arrowBounce 1s infinite;
+}
+
+.arrows span:nth-child(2) {
+    animation-delay: .5s;
+}
+
+@keyframes arrowBounce {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(15px);
+    }
+}
+
+/* TESTO */
 .paypal-text {
     position: absolute;
     top: 260px;
@@ -33,169 +181,49 @@
     font-size: 1.15rem;
     line-height: 1.6;
     z-index: 5;
-    color: #ffffff; /* <-- aggiunto: testo bianco su sfondo nero */
+    color: #ffffff; /* mancava: causava il testo nero su sfondo nero */
 }
 
-
-
-.photo-rain {
-
-    position: absolute;
-
-    inset: 0;
-
-    overflow: hidden;
-
-    z-index: 1;
-
-}
-
-
-
-.falling-photo {
-
-    position: absolute;
-
-    top: -150px;
-
-    height: auto;
-
-    opacity: 0.75;
-
-    animation: photoFall linear infinite;
-
-}
-
-
-
-@keyframes photoFall {
-
-
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes fade {
     from {
-
-        transform:
-        translateY(-150px)
-        rotate(0deg);
-
+        opacity: 0;
     }
-
-
     to {
-
-        transform:
-        translateY(120vh)
-        rotate(360deg);
-
+        opacity: 1;
     }
-
 }
 
-
-
-
-/* NOTIFICA */
-
-.notification {
-
-    position: absolute;
-
-    top: 15px;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    width: 90%;
-
-    max-width: 420px;
-
-    z-index: 5;
-
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-
-
-
-/* FRECCE */
-
-
-.arrows {
-
-    position: absolute;
-
-    top: 120px;
-
-    display: flex;
-
-    gap: 50px;
-
-    z-index: 5;
-
-}
-
-
-
-.arrows span {
-
-    font-size: 55px;
-
-    animation: arrowBounce 1s infinite;
-
-}
-
-
-
-.arrows span:nth-child(2){
-
-    animation-delay: .5s;
-
-}
-
-
-
-@keyframes arrowBounce {
-
-
+@keyframes floatGift {
     0%,100% {
-
-        transform:translateY(0);
-
+        transform: translateY(0) rotate(-3deg);
     }
-
-
     50% {
-
-        transform:translateY(15px);
-
+        transform: translateY(-10px) rotate(3deg);
     }
-
 }
 
-
-
-
-/* TESTO */
-
-
-.paypal-text {
-
-
-    position:absolute;
-
-    top:260px;
-
-    width:85%;
-
-    text-align:center;
-
-    font-size:1.15rem;
-
-    line-height:1.6;
-
-    z-index:5;
-
-}
-
-.hidden {
-    display: none !important;
+@keyframes openAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15) rotate(5deg);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
