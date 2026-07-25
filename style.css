@@ -25,6 +25,17 @@
 
 }
 
+.paypal-text {
+    position: absolute;
+    top: 260px;
+    width: 85%;
+    text-align: center;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    z-index: 5;
+    color: #ffffff; /* <-- aggiunto: testo bianco su sfondo nero */
+}
+
 
 
 .photo-rain {
