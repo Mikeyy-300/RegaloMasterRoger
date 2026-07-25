@@ -1,26 +1,21 @@
-* {
-
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-}
+/* =========================
+   PAYPAL SCREEN
+========================= */
 
 
-html, body {
+.paypal-screen {
 
-    width: 100%;
-    height: 100%;
+    position: fixed;
+
+    inset: 0;
+
+    width: 100vw;
+
+    height: 100vh;
 
     background: #000000;
 
-}
-
-
-
-body {
-
-    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
 
     display: flex;
 
@@ -28,213 +23,19 @@ body {
 
     align-items: center;
 
-    overflow: hidden;
-
-    color: white;
-
 }
 
 
-
-/* INTRO */
-
-.container {
-
-    text-align: center;
-
-    padding: 30px;
-
-    animation: fade 2s ease;
-
-}
-
-
-
-h1 {
-
-    font-size: 2rem;
-
-    font-weight: 600;
-
-    margin-bottom: 20px;
-
-    opacity: 0;
-
-    animation: fadeUp 1.8s forwards;
-
-    animation-delay: 0.8s;
-
-}
-
-
-
-.container p {
-
-    font-size: 1.1rem;
-
-    font-weight: 300;
-
-    margin-bottom: 40px;
-
-    opacity: 0;
-
-    animation: fadeUp 1.8s forwards;
-
-    animation-delay: 2.2s;
-
-}
-
-
-
-/* BUTTON */
-
-button {
-
-    opacity: 0;
-
-    padding: 16px 35px;
-
-    font-size: 18px;
-
-    font-family: 'Poppins', sans-serif;
-
-    border: none;
-
-    border-radius: 50px;
-
-    background: white;
-
-    color: black;
-
-    font-weight: 600;
-
-    animation: fadeUp 1.8s forwards;
-
-    animation-delay: 3.6s;
-
-}
-
-
-
-button:active {
-
-    transform: scale(0.95);
-
-}
-
-
-
-/* GIFT */
-
-.hidden {
-
-    display:none;
-
-}
-
-
-
-.gift-container {
-
-    text-align:center;
-
-    animation: fadeUp 1s forwards;
-
-}
-
-
-
-.gift-container img {
-
-    width:220px;
-
-    max-width:70vw;
-
-    cursor:pointer;
-
-    animation: floatGift 3s infinite ease-in-out;
-
-}
-
-
-
-.gift-container img.opened {
-
-    animation: openAnimation .8s ease forwards;
-
-}
-
-
-
-.touch-text {
-
-    margin-top:40px;
-
-    font-size:1.1rem;
-
-    font-weight:300;
-
-}
-
-
-
-/* PAYPAL SCREEN */
-
-.paypal-screen {
-
-    position:fixed;
-
-    inset:0;
-
-    width:100vw;
-
-    height:100vh;
-
-    background:#000000;
-
-    overflow:hidden;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-}
-
-
-
-/* NOTIFICA */
-
-.notification {
-
-    position:absolute;
-
-    top:20px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:min(90vw,400px);
-
-    z-index:5;
-
-}
-
-
-
-/* FOTO CHE CADONO */
 
 .photo-rain {
 
-    position:absolute;
+    position: absolute;
 
-    inset:0;
+    inset: 0;
 
-    overflow:hidden;
+    overflow: hidden;
 
-    z-index:1;
+    z-index: 1;
 
 }
 
@@ -242,35 +43,37 @@ button:active {
 
 .falling-photo {
 
-    position:absolute;
+    position: absolute;
 
-    top:-150px;
+    top: -150px;
 
-    width:90px;
+    height: auto;
 
-    height:auto;
+    opacity: 0.75;
 
-    opacity:0.8;
-
-    animation:fall linear infinite;
+    animation: photoFall linear infinite;
 
 }
 
 
 
-@keyframes fall {
+@keyframes photoFall {
 
 
     from {
 
-        transform:translateY(-150px) rotate(0deg);
+        transform:
+        translateY(-150px)
+        rotate(0deg);
 
     }
 
 
     to {
 
-        transform:translateY(120vh) rotate(360deg);
+        transform:
+        translateY(120vh)
+        rotate(360deg);
 
     }
 
@@ -278,19 +81,44 @@ button:active {
 
 
 
+
+/* NOTIFICA */
+
+.notification {
+
+    position: absolute;
+
+    top: 15px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 90%;
+
+    max-width: 420px;
+
+    z-index: 5;
+
+}
+
+
+
+
 /* FRECCE */
+
 
 .arrows {
 
-    position:absolute;
+    position: absolute;
 
-    top:110px;
+    top: 120px;
 
-    display:flex;
+    display: flex;
 
-    gap:40px;
+    gap: 50px;
 
-    z-index:6;
+    z-index: 5;
 
 }
 
@@ -298,9 +126,9 @@ button:active {
 
 .arrows span {
 
-    font-size:50px;
+    font-size: 55px;
 
-    animation:bounceArrow 1s infinite;
+    animation: arrowBounce 1s infinite;
 
 }
 
@@ -308,13 +136,13 @@ button:active {
 
 .arrows span:nth-child(2){
 
-    animation-delay:.5s;
+    animation-delay: .5s;
 
 }
 
 
 
-@keyframes bounceArrow {
+@keyframes arrowBounce {
 
 
     0%,100% {
@@ -334,115 +162,25 @@ button:active {
 
 
 
+
 /* TESTO */
+
 
 .paypal-text {
 
+
     position:absolute;
 
-    top:230px;
+    top:260px;
 
     width:85%;
 
     text-align:center;
 
-    font-size:1.2rem;
+    font-size:1.15rem;
 
     line-height:1.6;
 
     z-index:5;
-
-}
-
-
-
-/* ANIMAZIONI GENERALI */
-
-@keyframes fade {
-
-
-    from {
-
-        opacity:0;
-
-    }
-
-
-    to {
-
-        opacity:1;
-
-    }
-
-}
-
-
-
-@keyframes fadeUp {
-
-
-    from {
-
-        opacity:0;
-
-        transform:translateY(25px);
-
-    }
-
-
-    to {
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
-
-
-
-@keyframes floatGift {
-
-
-    0%,100% {
-
-        transform:translateY(0) rotate(-3deg);
-
-    }
-
-
-    50% {
-
-        transform:translateY(-10px) rotate(3deg);
-
-    }
-
-}
-
-
-
-@keyframes openAnimation {
-
-
-    0% {
-
-        transform:scale(1);
-
-    }
-
-
-    50% {
-
-        transform:scale(1.15) rotate(5deg);
-
-    }
-
-
-    100% {
-
-        transform:scale(1);
-
-    }
 
 }
