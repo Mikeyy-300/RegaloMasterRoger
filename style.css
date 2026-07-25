@@ -1,11 +1,9 @@
-/* =========================
-   GENERAL STYLE
-========================= */
-
 * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 
@@ -32,10 +30,7 @@ body {
 
 
 
-/* =========================
-   INTRO SCREEN
-========================= */
-
+/* INTRO */
 
 .container {
 
@@ -73,9 +68,9 @@ h1 {
 
     font-weight: 300;
 
-    opacity: 0;
-
     margin-bottom: 40px;
+
+    opacity: 0;
 
     animation: fadeUp 1.8s forwards;
 
@@ -85,10 +80,7 @@ h1 {
 
 
 
-/* =========================
-   BUTTON
-========================= */
-
+/* BUTTON */
 
 button {
 
@@ -116,10 +108,7 @@ button {
 
     animation-delay: 3.6s;
 
-    transition: transform .3s ease;
-
 }
-
 
 
 button:active {
@@ -130,10 +119,7 @@ button:active {
 
 
 
-/* =========================
-   GIFT CONTAINER
-========================= */
-
+/* GIFT */
 
 .hidden {
 
@@ -153,201 +139,26 @@ button:active {
 
 
 
-/* =========================
-   GIFT BOX
-========================= */
+.gift-container img {
 
+    width: 220px;
 
-.gift-box {
-
-    position: relative;
-
-    width: 180px;
-
-    height: 150px;
-
-    margin: auto;
+    max-width: 70vw;
 
     cursor: pointer;
 
-    animation: swing 3s infinite ease-in-out;
+    animation: floatGift 3s infinite ease-in-out;
 
 }
 
 
 
-/* BASE DELLA SCATOLA */
+.gift-container img.opened {
 
-.box {
-
-    position: absolute;
-
-    bottom: 0;
-
-    left: 0;
-
-    width: 180px;
-
-    height: 100px;
-
-    background: white;
-
-    border-radius: 5px;
-
-    box-shadow:
-
-        0 15px 30px rgba(0,0,0,0.5);
+    animation: openAnimation 0.8s ease forwards;
 
 }
 
-
-
-/* GRUPPO DEL COPERCHIO */
-
-.gift-lid {
-
-    position: absolute;
-
-    top: 0;
-
-    left: 0;
-
-    width: 180px;
-
-    height: 60px;
-
-    z-index: 5;
-
-    transform-origin: left bottom;
-
-}
-
-
-
-/* PARTE BIANCA DEL COPERCHIO */
-
-.lid {
-
-    position: absolute;
-
-    top: 10px;
-
-    left: 0;
-
-    width: 180px;
-
-    height: 40px;
-
-    background: white;
-
-    border-radius: 5px;
-
-}
-
-
-
-/* =========================
-   RIBBONS
-========================= */
-
-
-.ribbon {
-
-    position: absolute;
-
-    background: #d72638;
-
-    z-index: 3;
-
-}
-
-
-
-.ribbon.vertical {
-
-    width: 25px;
-
-    height: 130px;
-
-    left: 78px;
-
-    top: 10px;
-
-}
-
-
-
-.ribbon.horizontal {
-
-    width: 180px;
-
-    height: 25px;
-
-    left: 0;
-
-    top: 70px;
-
-}
-
-
-
-/* =========================
-   BOW
-========================= */
-
-
-.bow {
-
-    position: absolute;
-
-    top: -25px;
-
-    left: 65px;
-
-    z-index: 4;
-
-}
-
-
-
-.bow-left,
-.bow-right {
-
-    width: 45px;
-
-    height: 30px;
-
-    background: #d72638;
-
-    border-radius: 50%;
-
-    position: absolute;
-
-}
-
-
-
-.bow-left {
-
-    transform: rotate(-35deg);
-
-}
-
-
-
-.bow-right {
-
-    left: 30px;
-
-    transform: rotate(35deg);
-
-}
-
-
-
-/* =========================
-   TEXT BELOW GIFT
-========================= */
 
 
 .touch-text {
@@ -362,78 +173,20 @@ button:active {
 
 
 
-/* =========================
-   OPEN ANIMATION
-========================= */
-
-
-.gift-box.opened {
-
-    animation: none;
-
-    transform: translateY(-10px);
-
-}
-
-
-
-.gift-box.opened .gift-lid {
-
-    animation: openGiftLid 1.2s forwards ease-in-out;
-
-}
-
-
-
-@keyframes openGiftLid {
-
-
-    0% {
-
-        transform:
-        translateY(0)
-        rotate(0deg);
-
-    }
-
-
-    40% {
-
-        transform:
-        translateY(-25px)
-        rotate(-10deg);
-
-    }
-
-
-    100% {
-
-        transform:
-        translateY(-80px)
-        rotate(-35deg);
-
-    }
-
-}
-
-
-
-/* =========================
-   ANIMATIONS
-========================= */
+/* ANIMATIONS */
 
 
 @keyframes fade {
 
     from {
 
-        opacity:0;
+        opacity: 0;
 
     }
 
     to {
 
-        opacity:1;
+        opacity: 1;
 
     }
 
@@ -445,17 +198,17 @@ button:active {
 
     from {
 
-        opacity:0;
+        opacity: 0;
 
-        transform:translateY(25px);
+        transform: translateY(25px);
 
     }
 
     to {
 
-        opacity:1;
+        opacity: 1;
 
-        transform:translateY(0);
+        transform: translateY(0);
 
     }
 
@@ -463,18 +216,46 @@ button:active {
 
 
 
-@keyframes swing {
+@keyframes floatGift {
+
 
     0%,100% {
 
-        transform:rotate(-3deg);
+        transform: translateY(0) rotate(-3deg);
 
     }
 
 
     50% {
 
-        transform:rotate(3deg);
+        transform: translateY(-10px) rotate(3deg);
+
+    }
+
+}
+
+
+
+@keyframes openAnimation {
+
+
+    0% {
+
+        transform: scale(1);
+
+    }
+
+
+    50% {
+
+        transform: scale(1.15) rotate(5deg);
+
+    }
+
+
+    100% {
+
+        transform: scale(1);
 
     }
 
