@@ -388,3 +388,52 @@ button:active {
     }
 
 }
+
+
+/* =========================
+   OPEN GIFT ANIMATION
+========================= */
+
+
+.gift-box.opened {
+
+    animation: none;
+
+    transform: translateY(-10px);
+
+}
+
+
+
+.gift-box.opened .lid {
+
+    animation: openLid 1s forwards ease-in-out;
+
+}
+
+
+
+@keyframes openLid {
+
+
+    0% {
+
+        transform: translateY(0) rotate(0deg);
+
+    }
+
+
+    50% {
+
+        transform: translateY(-60px) rotate(-20deg);
+
+    }
+
+
+    100% {
+
+        transform: translateY(-90px) rotate(-35deg);
+
+    }
+
+}
