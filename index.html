@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Un piccolo regalo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+background:#090909;
+
+font-family:Poppins,sans-serif;
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+overflow:hidden;
+
+color:white;
+
+}
+
+.container{
+
+text-align:center;
+
+padding:30px;
+
+animation:fade 2s ease;
+
+}
+
+h1{
+
+font-size:2rem;
+
+font-weight:600;
+
+margin-bottom:20px;
+
+opacity:0;
+
+animation:fadeUp 1.8s forwards;
+animation-delay:0.8s;
+
+}
+
+p{
+
+opacity:0;
+
+font-size:1.1rem;
+
+margin-bottom:40px;
+
+animation:fadeUp 1.8s forwards;
+animation-delay:2.2s;
+
+}
+
+button{
+
+opacity:0;
+
+padding:16px 35px;
+
+font-size:18px;
+
+border:none;
+
+border-radius:50px;
+
+background:white;
+
+color:#111;
+
+font-weight:600;
+
+cursor:pointer;
+
+animation:fadeUp 1.8s forwards;
+animation-delay:3.6s;
+
+transition:.3s;
+
+}
+
+button:active{
+
+transform:scale(.95);
+
+}
+
+@keyframes fade{
+
+from{opacity:0;}
+
+to{opacity:1;}
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Per il Dottore...</h1>
+
+<p>C'è ancora una piccola cosa da fare.</p>
+
+<button>Apri il regalo</button>
+
+</div>
+
+</body>
+</html>
