@@ -1,101 +1,49 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
 <title>A Little Present</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="style.css">
-
 </head>
-
-
 <body>
-
-
 <div class="container" id="intro">
-
     <h1>Congratulazioni Dottore!</h1>
-
     <p>C'è ancora una piccola cosa da fare.</p>
-
     <button id="openButton">
         Apri il regalo
     </button>
-
 </div>
 
-
-
 <div class="gift-container hidden" id="gift">
-
-
-    <img 
+    <img
     id="giftImage"
     src="images/gift-closed.png"
     alt="Regalo">
-
-
     <p class="touch-text">
         Tocca il regalo 🎁
     </p>
-
-
 </div>
 
-
-
-
 <div class="paypal-screen hidden" id="paypalScreen">
-
-
     <div class="photo-rain" id="photoRain"></div>
-
-
-
-    <img 
+    <img
     class="notification"
     src="images/notifica.png"
     alt="Notifica PayPal">
-
-
-
     <div class="arrows">
-
         <span>↑</span>
-
         <span>↑</span>
-
     </div>
-
-
-
     <div class="paypal-text">
-
         Aspetta che compaia il tuo regalo...
-
         <br>
-
         non appena Samuele si decide a mandarti i nostri soldi 😅
-
     </div>
-
-
-
 </div>
 
-
-
 <script src="script.js"></script>
-
-
 </body>
-
 </html>
